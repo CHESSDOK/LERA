@@ -1,9 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['username'])) {
-    header("Location: ADMlogin.php");
-    exit();
-}
+include "auth.php";
 
 include_once "../php/db_connection.php";
 

@@ -1,4 +1,5 @@
 <?php
+include "auth.php";
 include "adminPHP/db_connection.php";
 
 if ($conn->connect_error) {

@@ -1,6 +1,5 @@
 <?php
 include_once "db_connection.php"; 
-include '../    auth.php';
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -16,7 +15,7 @@ if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
     $filename = basename($_FILES["file"]["name"]);
     $sql = "INSERT INTO uploads (task_id, filename, user_id) VALUES ('$task_id', '$filename', '$user_id')";
     if ($conn->query($sql) === TRUE) {
-        echo "The file " . htmlspecialchars($filename) . " has been uploaded.";
+        header("Location: ../pages/act.php");
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }

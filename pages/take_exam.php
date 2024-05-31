@@ -1,9 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['user_id'])) {
-    header("Location: ../index.html");
-    exit();
-}
+include "../auth.php";
 
 include_once "../php/db_connection.php";
 $eid = $_GET['eid'];

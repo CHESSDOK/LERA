@@ -1,4 +1,5 @@
 <?php
+include "auth.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include "adminPHP/db_connection.php";
 

@@ -17,38 +17,101 @@ $result = $conn->query($sql);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="adminCSS/view.css">
     <title>Admin - View Uploads</title>
 </head>
 <body>
+
+<header>
+      <div class="logo">
+        <img src="../icons/lslogo.png" alt="Logo" />
+      </div>
+      <div class="burger-menu">
+        <button id="burger-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+</header>
+
+    <div id="side-menu" class="side-menu">
+        <button id="close-btn">&times;</button>
+        <ul>
+          <li><a href="#">Profile</a></li>
+          <li><a href="home.php">Home</a></li>
+          <li><a href="ADMlogin.php" id="logout">Logout</a></li>
+        </ul>
+    </div>
+
     <h1>Uploaded Files</h1>
-    <table border="1">
+    <table>
+    <thead>
         <tr>
-            <th>Task</th>
-            <th>Username</th>
-            <th>Filename</th>
-            <th>Uploaded At</th>
-            <th>Grade</th>
-            <th>Download</th>
-            <th>Action</th>
+            <th scope="col">Task</th>
+            <th scope="col">Username</th>
+            <th scope="col">Filename</th>
+            <th scope="col">Uploaded At</th>
+            <th scope="col">Grade</th>
+            <th scope="col">Download</th>
+            <th scope="col">Action</th>
         </tr>
-        <?php while($row = $result->fetch_assoc()): ?>
+        </thead>
+        <tbody> 
+        <?php 
+            while($row = $result->fetch_assoc()){
+                echo "
             <tr>
-                <td><?php echo $row['title']; ?></td>
-                <td><?php echo $row['username']; ?></td>
-                <td><?php echo $row['filename']; ?></td>
-                <td><?php echo $row['uploaded_at']; ?></td>
-                <td><?php echo $row['grade']; ?></td>
-                <td><a href="uploads/<?php echo $row['filename']; ?>" download>Download</a></td>
-                <td>
-                    <form action="adminPHP/grade.php" method="post">
-                        <input type="hidden" name="upload_id" value="<?php echo $row['id']; ?>">
-                        <label for="grade">Grade:</label>
-                        <input type="text" name="grade" id="grade" required>
-                        <button type="submit">Submit</button>
+                <td data-label='Task'>" . $row['title'] . "</td>
+                <td data-label='Username'>" . $row['username'] . "</td>
+                <td data-label='Filename'>" . $row['filename'] . "</td>
+                <td data-label='Uploaded At'>" . $row['uploaded_at'] . "</td>
+                <td data-label='Grade'>" . $row['grade'] . "</td>
+                <td data-label='Download'><a href='adminPHP/read.php?read=" . $row['id'] . "' target='_blank' class='read-link'>Read</a></td>
+                <td data-label='Action'>
+                    <form action='adminPHP/grade.php' method='post'>
+                        <input type='hidden' name='upload_id' value=" . $row['id'] . ">
+                        <label for='grade'>Grade:</label>
+                        <input type='text' name='grade' id='grade' required>
+                        <button type='submit'>Submit</button>
                     </form>
                 </td>
             </tr>
-        <?php endwhile; ?>
+            "; 
+        }
+        ?>
+        </tbody>
     </table>
+    <script>
+        // menu
+        document.addEventListener("DOMContentLoaded", function () {
+        const burgerBtn = document.getElementById("burger-btn");
+        const sideMenu = document.getElementById("side-menu");
+        const closeBtn = document.getElementById("close-btn");
+        const logoutBtn = document.getElementById("logout");
+
+        burgerBtn.addEventListener("click", function () {
+            sideMenu.style.right = "0";
+        });
+
+        closeBtn.addEventListener("click", function () {
+            sideMenu.style.right = "-250px";
+        });
+
+        logoutBtn.addEventListener("click", function () {
+            // Add your logout functionality here
+            console.log("Logout clicked");
+        });
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,125 @@
+/* General Styles */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #5375E2;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* === header Styles === */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px 20px; /* Adjust as needed */
+  }
+  
+  .logo img {
+    width: 100px; /* Adjust the width of the logo */
+  }
+  
+  .burger-menu button {
+    background: none;
+    border: none;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    cursor: pointer;
+  }
+/* === Menu Styles === */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -250px; /* Adjust the position to be on the right */
+  width: 250px;
+  height: 100%;
+  background-color: #ffffff;
+  transition: right 0.3s ease; /* Change left to right for transition */
+  padding-top: 50px; /* Adjust padding as needed */
+}
+
+.side-menu button#close-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px; /* Adjust position as needed */
+  background: none;
+  border: none;
+  color: #000000;
+  font-size: 24px;
+  cursor: pointer;
+}
+  
+  .side-menu ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .side-menu ul li {
+    padding: 10px 0;
+  }
+  
+  .side-menu ul li a {
+    color: #000000;
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+  }
+  
+  .side-menu ul li a:hover {
+    background-color: #4457a6;
+  }
+
+/* Form Styles */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    margin: 10% auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"], textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

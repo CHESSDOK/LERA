@@ -2,8 +2,16 @@
 include "../auth.php";
 
 include_once "../php/db_connection.php";
-
 $user_id = $_SESSION['user_id'];
+
+$id = 1; // Specify the ID you want to fetch the Appname for
+$sql = "SELECT Appname FROM aname WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id); 
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+$appname = $row['Appname'];
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +36,7 @@ $user_id = $_SESSION['user_id'];
             <img src="../icons/a.jpg" alt="bg" class="image1">
         </div>
         <div class="header-text">
-            <h1>Smart Reviewer</h1>
+        <h1><?php echo htmlspecialchars($appname); ?></h1>
         </div>
     </div>
 

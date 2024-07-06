@@ -58,17 +58,31 @@ while ($answer = mysqli_fetch_assoc($user_answers_result)) {
             padding: 0;
         }
 
-         /* === header Styles === */
-        header {
+        .header {
+            background: linear-gradient( to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3) ); /* Change color and transparency here */
+            color: #fff; /* Change this to your desired text color */
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #ffffff;
-            padding: 10px 20px; /* Adjust as needed */
         }
         
-        .logo img {
-            width: 100px; /* Adjust the width of the logo */
+        .logo {
+            font-size: 24px; /* Adjust font size as needed */
+        }
+        
+        .nav-links a {
+            color: #000000; /* Change this to your desired link color */
+            text-decoration: none;
+            margin-left: 20px; /* Adjust spacing between links */
+        }
+        
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .nav-links .active {
+            font-weight: bold; /* Style for the active link */
         }
   
         /* Results Container */
@@ -145,13 +159,14 @@ while ($answer = mysqli_fetch_assoc($user_answers_result)) {
     <title>Exam Results</title>
 </head>
 <body>
-<header>
-      <div class="logo">
-        <!-- Place your logo here -->
+
+    <header class="header">
+        <div class="logo">
         <img src="../icons/lslogo.png" alt="Logo" />
-      </div>
-      <a href="exams_list.php"> <button id="back-button">Back</button> </a>
-      </div>
+        </div>
+        <nav class="nav-links">
+            <a href = "exams_list.php">Return</a>
+        </nav>
     </header>
     <div class="results">
         <h1>Results for Exam</h1>

@@ -27,16 +27,14 @@ $exams_result = mysqli_query($conn, $exams_query);
     <title>Exams List</title>
 </head>
 <body>
-    <header>
-      <div class="logo">
-        <!-- Place your logo here -->
+    <header class="header">
+        <div class="logo">
         <img src="../icons/lslogo.png" alt="Logo" />
-      </div>
-      <div class="burger-menu">
-        <button id="burger-btn">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
+        </div>
+        <nav class="nav-links">
+            <a href = "home.php">home</a>
+            <a href = "../php/logout.php">Log out</a>
+        </nav>
     </header>
 
     <table>
@@ -75,14 +73,6 @@ $exams_result = mysqli_query($conn, $exams_query);
         ?>
         </tbody>
     </table>
-    <div id="side-menu" class="side-menu">
-        <button id="close-btn">&times;</button>
-        <ul>
-          <li><a href="#">Profile</a></li>
-          <li><a href="home.php">home</a></li>
-          <li><a href="../index.html" id="logout">Logout</a></li>
-        </ul>
-      </div>
 </body>
 <script src="../js/side.js"></script>
 </html>

@@ -30,6 +30,14 @@ $appname = $row['Appname'];
     </style>
 </head>
 <body>
+<header class="header">
+  <div class="logo">
+  <img src="../icons/lslogo.png" alt="Logo" />
+  </div>
+  <nav class="nav-links">
+    <a href = "../php/logout.php">Log out</a>
+  </nav>
+</header>
     <div class="header-DB">
         <div class="image-container">
             <div class="overlay"></div>

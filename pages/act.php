@@ -23,41 +23,44 @@ $result_uploads = $conn->query($sql_uploads);
     <link rel="stylesheet" href="../css/act.css">
 </head>
 <body>
-<header>
-    <div class="logo">
+    <header class="header">
+        <div class="logo">
         <img src="../icons/lslogo.png" alt="Logo" />
-    </div>
-    <div class="burger-menu">
-        <button id="burger-btn">
-            <i class="fas fa-bars"></i>
-        </button>
-    </div>
-</header>
-<div id="side-menu" class="side-menu">
-    <button id="close-btn">&times;</button>
-    <ul>
-        <li><a href="#">Profile</a></li>
-        <li><a href="home.php">Home</a></li>
-        <li><a href="../index.html" id="logout">Logout</a></li>
-    </ul>
-</div>
-
+        </div>
+        <nav class="nav-links">
+            <a href = "home.php">home</a>
+            <a href = "../php/logout.php">Log out</a>
+        </nav>
+    </header>
+<main class="main">
 <h1>Tasks</h1>
+<section class="card-section">
 <?php while($row = $result_tasks->fetch_assoc()): ?>
-    <div>
-        <h2><?php echo $row['title']; ?></h2>
-        <p><?php echo $row['description']; ?></p>
-        <form action="../php/task.php" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="task_id" value="<?php echo $row['id']; ?>">
-            <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
-            <label for="file">Upload File:</label>
-            <input type="file" name="file" id="file" required>
-            <br>
-            <button type="submit">Upload</button>
-        </form>
+    <div class="card">
+        <div class="card-header">
+            <h1 class="subject-name"><?php echo $row['title']; ?></h2>
+        </div>
+        <div class="card-body">
+            <div class="dropdown">
+            <span>Description</span>
+            <div class="dropdown-content">
+            <p><?php echo $row['description']; ?></p>
+            </div>
+            </div>
+        
+            <form action="../php/task.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="task_id" value="<?php echo $row['id']; ?>">
+                <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
+                <label for="file">Upload File:</label>
+                <input type="file" name="file" id="file" required>
+                <br>
+                <button type="submit">Upload</button>
+            </form>
+        </div>
     </div>
 <?php endwhile; ?>
-
+</section>
+</main>
 <h1>Your Uploads and Grades</h1>
 <table border="1">
     <thead>

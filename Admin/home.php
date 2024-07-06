@@ -25,65 +25,17 @@ if(isset($_POST['Aname'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/home.css">  
     <title>User Dashboard</title>
-    <style>
-        body {
-            margin: -2%;
-            padding: none;
-            font-family: Arial, sans-serif;
-            background-color: white;
-        }
-        .input-field {
-            position: relative;
-            border-bottom: 2px solid rgb(0, 0, 0);
-            width: 300px;
-            margin: 15px 0;
-        }
-        
-        .input-field label {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            font-family: "Roboto", sans-serif;
-            color: #fff;
-            font-size: 16px;
-            pointer-events: none;
-            transition: 0.15s ease;
-        }
-        
-        .input-field input {
-            width: 100%;
-            height: 40px;
-            background: transparent;
-            border: none;
-            outline: none;
-            font-size: 16px;
-            color: #fff;
-        }
-        
-        .input-field input:focus ~ label,
-        .input-field input:valid ~ label {
-            font-size: 0.8rem;
-            top: 10px;
-            transform: translateY(-120%);
-        }
-        .action {
-            margin-top: 0px;
-            padding: 12px 16px;
-            border-radius: 8px;
-            border: none;
-            background-color: royalblue;
-            color: white;
-            cursor: pointer;
-            align-self: end;
-        }
-        @media screen and (max-width: 600px) {
-            body {
-            margin: -12.5%;
-        }
-    </style>
 </head>
 <body>
+<header class="header">
+        <div class="logo">
+        <img src="../icons/lslogo.png" alt="Logo" />
+        </div>
+        <nav class="nav-links">
+            <a href = "home.php">home</a>
+            <a href = "logout.php">Log out</a>
+        </nav>
+    </header>
     <div class="header-DB">
         <div class="image-container">
             <div class="overlay"></div>

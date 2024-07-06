@@ -35,16 +35,14 @@ if (!$result) {
     <title>Upload Files</title>
   </head>
   <body>
-    <header>
-      <div class="logo">
-        <!-- Place your logo here -->
+  <header class="header">
+        <div class="logo">
         <img src="../icons/lslogo.png" alt="Logo" />
-      </div>
-      <div class="burger-menu">
-        <button id="burger-btn">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
+        </div>
+        <nav class="nav-links">
+            <a href = "home.php">home</a>
+            <a href = "logout.php">Log out</a>
+        </nav>
     </header>
     <div id="FileUpload">
       <form action="adminPHP/upload.php" method="post" enctype="multipart/form-data">
@@ -75,14 +73,6 @@ if (!$result) {
       </form>
     </div>
 
-    <div id="side-menu" class="side-menu">
-        <button id="close-btn">&times;</button>
-        <ul>
-          <li><a href="#">Profile</a></li>
-          <li><a href="home.php">home</a></li>
-          <li><a href="ADMlogin.php" id="logout">Logout</a></li>
-        </ul>
-      </div>
       <table>
         <thead>
           <tr> 

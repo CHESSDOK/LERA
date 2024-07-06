@@ -41,16 +41,14 @@ if (!$progress_result) {
     <title>User Progress</title>
 </head>
 <body>
-    <header>
-      <div class="logo">
-        <!-- Place your logo here -->
+    <header class="header">
+        <div class="logo">
         <img src="../icons/lslogo.png" alt="Logo" />
-      </div>
-      <div class="burger-menu">
-        <button id="burger-btn">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
+        </div>
+        <nav class="nav-links">
+            <a href = "home.php">home</a>
+            <a href = "../php/logout.php">Log out</a>
+        </nav>
     </header>
    
 
@@ -83,14 +81,6 @@ if (!$progress_result) {
             </tbody>
         </table>
     </div>
-    <div id="side-menu" class="side-menu">
-    <button id="close-botns"> &times; </button>
-    <ul>
-      <li><a href="#">Profile</a></li>
-      <li><a href="home.php">Home</a></li>
-      <li><a href="../index.html" id="logout">Logout</a></li>
-    </ul>
-  </div>
     <script src="../js/side.js"></script>
 </body>
 </html>

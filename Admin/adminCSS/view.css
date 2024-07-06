@@ -6,70 +6,32 @@ body {
     padding: 0;
 }
 
-/* === Header Styles === */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ffffff;
-    padding: 10px 20px;
+.header {
+  background: linear-gradient( to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3) ); /* Change color and transparency here */
+  color: #fff; /* Change this to your desired text color */
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.logo img {
-    width: 100px;
+.logo {
+  font-size: 24px; /* Adjust font size as needed */
 }
 
-.burger-menu button {
-    background: none;
-    border: none;
-    color: rgb(0, 0, 0);
-    font-size: 24px;
-    cursor: pointer;
+.nav-links a {
+  color: #000000; /* Change this to your desired link color */
+  text-decoration: none;
+  margin-left: 20px; /* Adjust spacing between links */
 }
 
-/* === Menu Styles === */
-.side-menu {
-    position: fixed;
-    top: 0;
-    right: -250px;
-    width: 250px;
-    height: 100%;
-    background-color: #ffffff;
-    transition: right 0.3s ease;
-    padding-top: 50px;
+.nav-links a:hover {
+  text-decoration: underline;
 }
 
-.side-menu button#close-btn {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background: none;
-    border: none;
-    color: #000000;
-    font-size: 24px;
-    cursor: pointer;
+.nav-links .active {
+  font-weight: bold; /* Style for the active link */
 }
-
-.side-menu ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.side-menu ul li {
-    padding: 10px 0;
-}
-
-.side-menu ul li a {
-    color: #000000;
-    text-decoration: none;
-    display: block;
-    padding: 10px 20px;
-}
-
-.side-menu ul li a:hover {
-    background-color: #4457a6;
-}
-
 h1 {
     color: #ffffff;
     text-align: center;
@@ -136,9 +98,6 @@ form button:hover {
 
 /* Media Query for smaller screens */
 @media only screen and (max-width: 600px) {
-    header {
-        flex-direction: column;
-    }
     table {
         border: 0;
       }

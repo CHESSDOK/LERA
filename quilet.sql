@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 30, 2024 at 10:14 AM
+-- Generation Time: Jul 06, 2024 at 03:38 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -43,6 +43,24 @@ INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `aname`
+--
+
+CREATE TABLE `aname` (
+  `id` int NOT NULL,
+  `Appname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `aname`
+--
+
+INSERT INTO `aname` (`id`, `Appname`) VALUES
+(1, 'LERA APP');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `exam`
 --
 
@@ -61,7 +79,9 @@ CREATE TABLE `exam` (
 --
 
 INSERT INTO `exam` (`title`, `corr`, `wrong`, `total`, `tag`, `date`, `eid`) VALUES
-('Php', 2, 1, 2, 'Coding', '2024-05-23 13:48:58', '664ed8cae2b83');
+('Php', 2, 1, 2, 'Coding', '2024-05-23 13:48:58', '664ed8cae2b83'),
+('Pseudoscience', 2, 1, 2, 'science', '2024-05-31 16:37:08', '66598c34a21a8'),
+('Javascript', 2, 1, 2, 'js', '2024-06-01 09:57:23', '665a8003a51ec');
 
 -- --------------------------------------------------------
 
@@ -128,7 +148,11 @@ CREATE TABLE `question` (
 
 INSERT INTO `question` (`id`, `eid`, `question`, `option_a`, `option_b`, `option_c`, `option_d`, `correct_answer`, `marks`) VALUES
 (34, '664ed8cae2b83', 'What is the primary purpose of PHP in web development?', 'To style web pages', 'To add interactivity to web pages', 'To manage databases', 'To create dynamic web pages and server-side scripting', 'd', 1),
-(35, '664ed8cae2b83', 'Which of the following is the correct way to start a PHP block of code?', '<script>', '<% %>', '<?php ?>', '<!-- -->', 'c', 1);
+(35, '664ed8cae2b83', 'Which of the following is the correct way to start a PHP block of code?', '<script>', '<% %>', '<?php ?>', '<!-- -->', 'c', 1),
+(36, '66598c34a21a8', 'how many moons are there in jupiter', '1', '23', '95', '60', 'c', 1),
+(37, '66598c34a21a8', 'The study of something that claims or appears to be scientific in nature, but is not related to science is known as what?', 'Pseudoscience', 'Alchemy', 'Mysticism', 'Hestia', 'a', 1),
+(38, '665a8003a51ec', 'What is the use of js', 'a', 'b', 'c', 'd', 'b', 1),
+(39, '665a8003a51ec', 'start and ending tag of js', 'a', 'b', 'c', 'd', 'd', 1);
 
 -- --------------------------------------------------------
 
@@ -148,8 +172,7 @@ CREATE TABLE `tasks` (
 --
 
 INSERT INTO `tasks` (`id`, `title`, `description`, `created_at`) VALUES
-(1, 'XAMMP', 'Provide the meaning of xammp', '2024-05-30 08:50:30'),
-(2, 'XAMMP', 'Provide the meaning of xammp', '2024-05-30 08:52:15');
+(1, 'XAMMP', 'Provide the meaning of xammp', '2024-05-30 08:50:30');
 
 -- --------------------------------------------------------
 
@@ -165,13 +188,6 @@ CREATE TABLE `uploads` (
   `uploaded_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `grade` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `uploads`
---
-
-INSERT INTO `uploads` (`id`, `task_id`, `user_id`, `filename`, `uploaded_at`, `grade`) VALUES
-(2, 1, 44, 'Doc1.docx', '2024-05-30 09:58:23', '85');
 
 -- --------------------------------------------------------
 
@@ -193,7 +209,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `verification_code`, `email_verified_at`) VALUES
-(44, 'asdfasfwe', 'ict1mercado.cdlb@gmail.com', '$2y$10$My2hx5Ty27hfP1zsRU45eeBZx.iuThFS8RZynd4P5gRQH6.oX203u', '733483', '2024-05-18 12:20:28.000000');
+(44, 'asdfasfwe', 'ict1mercado.cdlb@gmail.com', '$2y$10$My2hx5Ty27hfP1zsRU45eeBZx.iuThFS8RZynd4P5gRQH6.oX203u', '733483', '2024-05-18 12:20:28.000000'),
+(45, 'Mark', 'mercadomarklawrence55@gmail.com', '$2y$10$SmeQksEKsf3cIHGkBD8VN.6Isw.oITz4XwxtNDSa.cI542yByESHu', '225231', '2024-07-06 11:27:59.000000');
 
 -- --------------------------------------------------------
 
@@ -228,8 +245,10 @@ INSERT INTO `user_answers` (`id`, `user_id`, `eid`, `qid`, `answer`) VALUES
 (86, 44, '664ecbda9d624', 33, 'a'),
 (93, 44, '664c8ca6bbed4', 16, 'd'),
 (94, 44, '664c8ca6bbed4', 17, 'b'),
-(113, 44, '664ed8cae2b83', 34, 'd'),
-(114, 44, '664ed8cae2b83', 35, 'c');
+(115, 44, '66598c34a21a8', 36, 'c'),
+(116, 44, '66598c34a21a8', 37, 'a'),
+(117, 44, '664ed8cae2b83', 34, 'd'),
+(118, 44, '664ed8cae2b83', 35, 'c');
 
 -- --------------------------------------------------------
 
@@ -254,7 +273,8 @@ CREATE TABLE `user_scores` (
 --
 
 INSERT INTO `user_scores` (`id`, `user_id`, `eid`, `score`, `correct_answers`, `wrong_answers`, `date`, `rank`, `retake_count`) VALUES
-(54, 44, '664ed8cae2b83', 2, 2, 0, '2024-05-25 04:06:11', 0, 0);
+(55, 44, '66598c34a21a8', 2, 2, 0, '2024-05-31 08:50:06', 0, 0),
+(56, 44, '664ed8cae2b83', 2, 2, 0, '2024-06-01 01:44:13', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -276,7 +296,9 @@ CREATE TABLE `videos` (
 
 INSERT INTO `videos` (`id`, `category`, `youtube_url`, `embed_url`, `created_at`) VALUES
 (5, 'ㅤ', 'https://www.youtube.com/watch?v=PmtVcTgu9lI', 'https://www.youtube.com/embed/PmtVcTgu9lI', '2024-05-30 06:49:32'),
-(6, 'ㅤ', 'https://www.youtube.com/watch?v=MMVaFpFGv9s', 'https://www.youtube.com/embed/MMVaFpFGv9s', '2024-05-30 06:49:57');
+(6, 'ㅤ', 'https://www.youtube.com/watch?v=MMVaFpFGv9s', 'https://www.youtube.com/embed/MMVaFpFGv9s', '2024-05-30 06:49:57'),
+(7, 'Filipino', 'https://www.youtube.com/watch?v=sBJmRD7kNTk', 'https://www.youtube.com/embed/sBJmRD7kNTk', '2024-06-01 09:55:39'),
+(8, 'Filipino', 'https://www.youtube.com/watch?v=PlpM2LJWu-s', 'https://www.youtube.com/embed/PlpM2LJWu-s', '2024-06-01 09:56:36');
 
 --
 -- Indexes for dumped tables
@@ -286,6 +308,12 @@ INSERT INTO `videos` (`id`, `category`, `youtube_url`, `embed_url`, `created_at`
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `aname`
+--
+ALTER TABLE `aname`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -364,6 +392,12 @@ ALTER TABLE `admin`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `aname`
+--
+ALTER TABLE `aname`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `files`
 --
 ALTER TABLE `files`
@@ -379,7 +413,7 @@ ALTER TABLE `flashcards`
 -- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `tasks`
@@ -391,31 +425,31 @@ ALTER TABLE `tasks`
 -- AUTO_INCREMENT for table `uploads`
 --
 ALTER TABLE `uploads`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `user_answers`
 --
 ALTER TABLE `user_answers`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 
 --
 -- AUTO_INCREMENT for table `user_scores`
 --
 ALTER TABLE `user_scores`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
